@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Онли - Дневник роста щенка</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐕</text></svg>">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐕 Онли</h1>
+            <p class="birth-info">Родилась: 5 августа 2025 года в 15:05</p>
+            <div class="editor-controls">
+                <button id="editorBtn" class="btn">Ввести код редактора</button>
+                <button id="exitEditorBtn" class="btn hidden">Выйти из редактора</button>
+                <button id="saveBtn" class="btn btn-success hidden">Сохранить данные</button>
+                <button id="clearBtn" class="btn btn-danger hidden">Очистить данные</button>
+            </div>
+        </header>
+
+        <div id="editorModal" class="modal hidden">
+            <div class="modal-content">
+                <h3>Введите код редактора</h3>
+                <input type="password" id="editorCode" placeholder="Введите код" maxlength="10">
+                <div class="modal-buttons">
+                    <button id="submitCode" class="btn">Подтвердить</button>
+                    <button id="cancelCode" class="btn">Отмена</button>
+                </div>
+            </div>
+        </div>
+
+        <main>
+            <div class="stats-panel">
+                <div class="stat-card">
+                    <h3>Возраст</h3>
+                    <p id="age">0 дней</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Текущий вес</h3>
+                    <p id="currentWeight">0 г</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Дней отслеживания</h3>
+                    <p id="trackingDays">0</p>
+                </div>
+            </div>
+
+            <div class="add-entry-section">
+                <h2>Добавить запись</h2>
+                <form id="entryForm">
+                    <div class="form-group">
+                        <label for="entryDate">Дата:</label>
+                        <input type="date" id="entryDate" name="entryDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="photo">Фото (необязательно):</label>
+                        <input type="file" id="photo" name="photo" accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">Вес (г):</label>
+                        <input type="number" id="weight" name="weight" min="0" step="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Заметки (необязательно):</label>
+                        <textarea id="notes" name="notes" rows="3" placeholder="Заметки о дне..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Добавить запись</button>
+                </form>
+            </div>
+
+            <div class="entries-section">
+                <h2>Записи</h2>
+                <div id="entriesList" class="entries-list">
+                    <!-- Записи будут добавляться здесь -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
